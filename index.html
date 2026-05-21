@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Eseosa IT Consult - Seamless Networks. Fast Websites. Reliable Devices. One partner for your business technology infrastructure in Nigeria.">
+    <title>Eseosa IT Consult | Tech Services Nigeria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #F8F9FA;
+            color: #1E293B;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, #0A192F 0%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #0A192F;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #0A192F;
+            margin-bottom: 0.75rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0A192F;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #00B4D8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1E293B;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00B4D8;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #0A192F;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #FF6B35;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0A192F;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: 2px solid #00B4D8;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #00B4D8;
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #F8F9FA 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(circle, rgba(0,180,216,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: pulse 10s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(40px,40px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin: 1.5rem 0;
+        }
+
+        .trust-badge {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Service Cards */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0,180,216,0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #0A192F;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .how-it-works h2 {
+            color: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #00B4D8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        /* Pricing Section (without amounts) */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #00B4D8;
+            transform: scale(1.02);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+        }
+
+        .pricing-card li::before {
+            content: "✓ ";
+            color: #00B4D8;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .contact-info {
+            background: #F8F9FA;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #F8F9FA;
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0A192F;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer a {
+            color: #94A3B8;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #00B4D8;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+        }
+
+        /* Live Chat */
+        .live-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00B4D8;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: bounce 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .live-chat:hover {
+            animation: none;
+            transform: scale(1.1);
+        }
+
+        .chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            z-index: 1001;
+        }
+
+        .chat-modal.active {
+            display: block;
+        }
+
+        .chat-header {
+            background: #0A192F;
+            color: white;
+            padding: 1rem;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .chat-body {
+            padding: 1rem;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Eseosa <span>IT Consult</span></a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Packages</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn-primary" style="padding: 8px 20px;">Free Assessment</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Seamless Networks.<br>Fast Websites.<br>Reliable Devices.</h1>
+            <p>One partner for your business technology infrastructure – from routers to servers to smartphones. Serving businesses across Nigeria.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn-primary">Get a Free Assessment →</a>
+                <a href="#services" class="btn-secondary">View Services →</a>
+            </div>
+            <div class="trust-badge">
+                <span>★ Trusted by 120+ Nigerian businesses</span>
+                <span>⚡ Avg. response: &lt;15 min</span>
+                <span>★ 4.9/5 (78 reviews)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Technology Services</h2>
+            <p>End-to-end IT solutions for modern businesses</p>
+        </div>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Networking</h3>
+                <ul>
+                    <li>✓ Secure, high-speed business networks</li>
+                    <li>✓ VLAN setup & firewall security</li>
+                    <li>✓ Wi-Fi 6 deployment</li>
+                    <li>✓ 24/7 network monitoring</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Deployment</h3>
+                <ul>
+                    <li>✓ Launch or migrate with zero downtime</li>
+                    <li>✓ AWS/Cloudways hosting</li>
+                    <li>✓ WordPress/React setup</li>
+                    <li>✓ SSL, CDN & daily backups</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>End-User Devices</h3>
+                <ul>
+                    <li>✓ Keep your team productive</li>
+                    <li>✓ Device onboarding & MDM</li>
+                    <li>✓ Break/fix repairs</li>
+                    <li>✓ Antivirus & data backup</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <h2 style="text-align: center;">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Assess</h3>
+                <p>Free 30-min discovery call to understand your needs</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Deploy</h3>
+                <p>Setup in 3–10 business days with minimal disruption</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Support</h3>
+                <p>24/5 chat, email, and phone support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Packages Section (no prices) -->
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="section-title">
+            <h2>Service Packages</h2>
+            <p>Choose the package that fits your business needs</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Essential</h3>
+                <ul>
+                    <li>Networking (firewall + Wi-Fi)</li>
+                    <li>Basic monitoring</li>
+                    <li>Business hours support</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Business</h3>
+                <ul>
+                    <li>Networking (full suite)</li>
+                    <li>Website hosting + management</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <ul>
+                    <li>All Networking features</li>
+                    <li>Website hosting + management</li>
+                    <li>Device support (unlimited devices)</li>
+                    <li>24/7 emergency support</li>
+                </ul>
+                <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Request Quote</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #64748b;">Custom bundles available. Contact us for a tailored quote.</p>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Trusted by Nigerian Businesses</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Eseosa IT Consult moved our office to a fully managed network and migrated our website in one weekend. Zero downtime."</p>
+                <strong>— Tunde O., Operations Manager, Lagos</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"They manage all 45 of our team's laptops remotely. Tickets are solved same-day."</p>
+                <strong>— Chioma E., Startup Founder, Abuja</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"The best decision we made was switching to Eseosa IT Consult for all our IT needs. One point of contact, everything works."</p>
+                <strong>— Michael A., CEO, Port Harcourt</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Let's Talk Technology</h2>
+            <p>Get a free assessment or request emergency support</p>
+        </div>
+        <div class="contact-grid">
+            <form id="contactForm" class="contact-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Business Name" required>
+                <input type="email" placeholder="Email Address" value="eseosaitconsult@gmail.com" readonly style="background: #f1f5f9;">
+                <input type="tel" placeholder="Phone Number" required>
+                <select required>
+                    <option value="">Primary Need</option>
+                    <option>Networking</option>
+                    <option>Website Deployment</option>
+                    <option>Device Services</option>
+                    <option>All three</option>
+                </select>
+                <textarea rows="4" placeholder="Tell us about your business needs..."></textarea>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Message →</button>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>📧 <strong>Email:</strong> eseosaitconsult@gmail.com</p>
+                <p>📞 <strong>Phone:</strong> 234-706-597-6068</p>
+                <p>⏰ <strong>Hours:</strong> Mon–Fri, 8am–6pm WAT</p>
+                <p>🚨 <strong>Emergency Support:</strong> 24/7 for Enterprise clients</p>
+                <p>📍 <strong>Service Area:</strong> Lagos, Abuja, Port Harcourt & remote nationwide</p>
+                <hr style="margin: 1.5rem 0;">
+                <h4>SLA Guarantee</h4>
+                <p>⭐ 99.9% uptime for networking + hosting<br>⚡ Response within 4 business hours</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <h3>Eseosa IT Consult</h3>
+                <p>Seamless Networks.<br>Fast Websites.<br>Reliable Devices.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#pricing">Packages</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>📧 eseosaitconsult@gmail.com</p>
+                <p>📞 234-706-597-6068</p>
+                <p>🕐 Mon–Fri, 8am–6pm WAT</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Eseosa IT Consult. All rights reserved. One partner for your business technology infrastructure.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Live Chat -->
+<div class="live-chat" onclick="toggleChat()">
+    💬
+</div>
+<div class="chat-modal" id="chatModal">
+    <div class="chat-header">
+        <strong>Eseosa IT Consult Support</strong>
+        <button onclick="toggleChat()" style="float: right; background: none; border: none; color: white; cursor: pointer;">✕</button>
+    </div>
+    <div class="chat-body">
+        <p>👋 Hi there! How can we help you today?</p>
+        <p>📞 Call us: 234-706-597-6068</p>
+        <p>📧 Email: eseosaitconsult@gmail.com</p>
+        <input type="text" class="chat-input" placeholder="Type your message..." id="chatInput">
+        <button class="btn-primary" style="margin-top: 10px; width: 100%;" onclick="sendChat()">Send</button>
+    </div>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        const nav = document.getElementById('navLinks');
+        nav.classList.toggle('active');
+    }
+
+    // Live Chat
+    function toggleChat() {
+        const modal = document.getElementById('chatModal');
+        modal.classList.toggle('active');
+    }
+
+    function sendChat() {
+        const input = document.getElementById('chatInput');
+        if (input.value.trim()) {
+            alert(`Message sent! We'll respond within minutes.\n\nYou said: ${input.value}\n\nOur team at Eseosa IT Consult will reply to eseosaitconsult@gmail.com or call 234-706-597-6068.`);
+            input.value = '';
+            toggleChat();
+        }
+    }
+
+    // Contact Form Submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you! A representative from Eseosa IT Consult will contact you within 4 business hours.\n\nEmail: eseosaitconsult@gmail.com\nPhone: 234-706-597-6068');
+        this.reset();
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
